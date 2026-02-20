@@ -385,4 +385,4 @@ Built and tested against MoversSuite by EWS Group. Allied Van Lines agents and o
 
 ---
 
-*Built by the marketing and operations team at an Allied Van Lines agent. Shared for the benefit of other MoversSuite operators looking to go deeper than out-of-the-box reporting.*
+*Built by Jake Beckstead. Shared for the benefit of other MoversSuite operators looking to go deeper than out-of-the-box reporting.*
