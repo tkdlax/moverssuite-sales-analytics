@@ -24,9 +24,9 @@ These behaviors are difficult to detect without a report that holds all three nu
 
 ---
 
-## The Foundation: `vRevenueEntryBMS`
+## The Foundation: `vRevenueEntry`
 
-Both queries in this repo rely on a custom view called `vRevenueEntryBMS`. This is a **modified copy** of MoversSuite's system-provided `vRevenueEntry` view.
+Both queries in this repo rely on a custom view called `vRevenueEntryBMS`. This is a **modified copy** of MoversSuite's system-provided `vRevenueEntry` view, modified with BMS because we are 'Bailey's Moving & Storage'
 
 ### ⚠️ Important Note for Other Operators
 
