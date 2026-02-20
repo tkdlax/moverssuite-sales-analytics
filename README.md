@@ -324,19 +324,36 @@ ORDER BY e.TotalEstimate DESC;
 
 ---
 
-### Sample Output
+### Sample Output & How to Read It
 
 > Branch: `1160` | Commodity: `Household Goods` | Year: `2025`
 
 | Salesman | TotalEstimate | TotalBookableRevenue | TotalCommissionableRevenue | BookablePctOfEstimate | CommissionablePctOfEstimate |
 |---|---|---|---|---|---|
-| Alex Rivera | $1,842,500.00 | $1,734,210.00 | $1,698,450.00 | 0.941300 | 0.922100 |
-| Jordan Meeks | $1,615,000.00 | $1,490,800.00 | $1,388,220.00 | 0.923000 | 0.859600 |
-| Casey Thornton | $1,203,750.00 | $1,118,600.00 | $1,104,980.00 | 0.929200 | 0.918000 |
-| Morgan Hale | $987,400.00 | $901,220.00 | $892,100.00 | 0.912800 | 0.903600 |
-| Taylor Quinn | $764,200.00 | $698,450.00 | $724,880.00 | 0.914000 | 0.948600 |
+| Alex Rivera | $2,084,500.00 | $1,674,210.00 | $876,440.00 | 0.8034 | 0.4205 |
+| Jordan Meeks | $2,031,800.00 | $1,355,900.00 | $529,800.00 | 0.6674 | 0.2608 |
+| Casey Thornton | $1,876,400.00 | $1,309,220.00 | $655,980.00 | 0.6977 | 0.3495 |
+| Morgan Hale | $1,838,750.00 | $1,454,600.00 | $806,110.00 | 0.7912 | 0.4385 |
+| Drew Callahan | $1,548,200.00 | $1,165,840.00 | $576,320.00 | 0.7530 | 0.3722 |
+| Reese Navarro | $1,518,900.00 | $1,062,480.00 | $446,700.00 | 0.6994 | 0.2940 |
+| Taylor Quinn | $1,374,600.00 | $1,097,340.00 | $714,280.00 | 0.7982 | 0.5197 |
 
-> 💡 **What to look for:** Taylor Quinn shows a `CommissionablePctOfEstimate` (0.9486) that is *higher* than their `BookablePctOfEstimate` (0.9140). This means commissionable revenue represents a disproportionate share of total retained revenue — a signal worth investigating. Jordan Meeks shows the opposite pattern: a notable gap between bookable and commissionable revenue that may indicate commission was redirected to drivers to resolve service issues rather than handled by the sales team directly.
+---
+
+**Understanding the percentages**
+
+`BookablePctOfEstimate` tells you how much of what a salesperson estimated actually became retained revenue. `CommissionablePctOfEstimate` tells you what share of the estimate landed in commissionable line items specifically. The gap between those two numbers — and how each compares to the team median — is where the insight lives.
+
+In this sample, the median `CommissionablePctOfEstimate` across the team sits around **0.37–0.39**. That becomes the baseline for identifying outliers in either direction.
+
+**Low commissionable % relative to the median (e.g., Jordan Meeks at 0.2608)**
+A salesperson who is meaningfully below the median on commissionable revenue — while their bookable revenue looks otherwise normal — may be redirecting commission dollars to resolve service problems rather than handling them directly. If a customer or driver situation becomes difficult, the path of least resistance is to pull money out of the commission line and pay it out, which closes the issue but reduces what the company retains and offloads a core sales responsibility. This report doesn't confirm that's happening, but it creates the visibility to ask the question.
+
+**High commissionable % relative to the median (e.g., Taylor Quinn at 0.5197)**
+A salesperson significantly above the median warrants a different kind of review. In some cases, this reflects a legitimate product mix — certain move types or service configurations are simply more commissionable by nature. In other cases, it may indicate a salesperson manipulating line item rates: raising the rates on commissionable items while suppressing non-commissionable ones to inflate their personal payout. The total revenue may look fine on the surface while the underlying pricing structure has been gamed.
+
+**Bookable revenue vs. estimate (beyond commissions)**
+The `BookablePctOfEstimate` column reveals something separate: how effectively a salesperson converts their estimate into actual retained revenue for the company. A rep who consistently captures a higher percentage isn't just closing — they may be making smart operational decisions that keep revenue in-house. Examples include recommending storage-in-transit at the origin agency rather than destination, or keeping labor and services in-house rather than subcontracting to third parties when the company has the capacity to perform the work. These decisions don't show up in commission reports at all, but they show up here.
 
 ---
 
