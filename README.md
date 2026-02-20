@@ -210,7 +210,7 @@ This is the core analytical query. It was built to answer a harder question: not
 
 ### Why Multiple CTEs?
 
-MoversSuite stores `TotalEstimateAmount` (from the `Orders` table) on **every revenue line item row** when the view joins down to `BillingMinorItem`. A single order with 10 line items appears 10 times in the view — each row carrying the same estimate value. Summing it directly produces estimate totals that are 10x (or more) too high.
+MoversSuite stores `TotalEstimateAmount` (from the `Orders` table) on **every revenue line item row** when the view joins down to `BillingMinorItem`. A single order with 10 line items could appear 10 times in the view — each row carrying the same estimate value. Summing it directly would produce estimate totals that are 10x (or more, based on number of rows) too high.
 
 The solution: isolate the estimate calculation in its own CTE using `MAX()` per order — since the value is identical on every row, `MAX` returns the correct single value — while summing revenue amounts separately. Attempting to do this in a single pass produces inflated estimates and unreliable percentages.
 
